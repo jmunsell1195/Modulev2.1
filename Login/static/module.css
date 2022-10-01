@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css?family=Montserat');
+
+/* Global Styles */
+:root {
+    --primary-color: #352355;
+    --dark-color: #000;
+    --light-color: #e9ecef;
+    --danger-color: #dc3545;
+    --success-color: #28a745;
+  }
+  
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: 'Montserat', sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+    background-color: #fff;
+    color: #333;
+  }
+
+.bg-black{
+    background-color: #000;
+}
+
+.navbar-brand{
+    font-size: small;
+}
+
+
+
+.nl-inactive{
+    color:gray;
+    font-size: 0.8rem;
+    vertical-align:  bottom;
+}
+
+.nl-active{
+    color: white;
+    font-size: 2rem;
+}
+
+.beacon{
+}
+  .beacon:hover{
+    cursor: pointer;
+    document.getElementById("demo").innerHTML = "This is top bar keeps track of your progress in the module";
+  }
+  .custbut{
+    font-size: 2vmin;
+    background-color: #6c63ff;
+    width: 5vw;
+    height: 5vh;
+    text-align: center;
+    line-height: 0px;
+    border: none;
+    -moz-box-shadow: 0px 0px 10px #6c63ff;
+    -webkit-box-shadow: 0px 0px 10px #6c63ff;
+    box-shadow: 0px 0px 10px #6c63ff;
+  }
+  .custbut:hover{
+    background-color: #6359FB
+  }
+  .custbut:active{
+    transform: scale(0.9);
+    background-color: #6c63ff;
+  }
+  .custbut:focus{
+    background-color: #6c63ff;
+  }
+
+.item1 { grid-area: header; height: 10vh; width: 100vw}
+.item2 { grid-area: left; width: 50vw}
+.item3 { grid-area: right; width:50vw}
+.item4 { grid-area: footer; width: 100vw}
+
+.grid-container {
+  display: grid;
+  grid-template-areas:
+    'header header header header header header'
+    'left left left right right right'
+    'footer footer footer footer footer footer';
+  grid-gap: 0px;
+  padding: 0px;
+  margin-left: auto;
+  margin-right: auto;
+  justify-items: center;
+}
+
+.grid-container > div {
+  background-color: none;
+  text-align: center;
+  padding: 10px;
+  justify-items: center;
+}
+
+.item12 { grid-area: header; height: 10vh; width: 100vw}
+.item22 {grid-area: center}
+.item32 { grid-area: footer; width: 100vw}
+
+.grid-container2 {
+  display: grid;
+  grid-template-areas:
+    'header header header header header header'
+    'center' 'center' 'center' 'center' 'center' 'center'
+    'footer footer footer footer footer footer';
+  grid-gap: 0px;
+  padding: 0px;
+  margin-left: auto;
+  margin-right: auto;
+  justify-items: center;
+}
+
+.grid-container2 > div {
+  background-color: none;
+  text-align: center;
+  padding: 10px;
+  justify-items: center;
+}
+
+.mainlevel{
+background-color: #e9ecef;
+width: 100%;
+height: 100%;
+}
+
+
+.my-path {
+fill: black;
+stroke:#6c63ff;
+stroke-width:8;
+}

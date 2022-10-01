@@ -1,0 +1,448 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block head %}
+
+<link rel="stylesheet" href="{% static "utility.css"%}">
+<link rel="stylesheet" href="{% static "CSS/content-styles-forces.css"%}"> 
+<title>Force Module | Forces</title>
+
+{% endblock %}
+
+{% block body %}
+
+            <!-- Navbar -->
+            <div id="navbar" class="navbar-container">
+                <div class="navbar-logo">
+                    <img id="logo" height="48" width="48" alt="" src="{% static "navbarico.svg" %}"></img>
+                    Force Module
+                 </div>
+                <div class="tabs">
+                    <nav>
+                      <ul>
+                          <li><a id="Login" class="inactive" href="#">Login</a></li>
+                          <li><a id="Warm-Up" class="inactive" href="#">Warm-Up</a></li>
+                          <li><a id="Instruction" class="active" href="#">Instruction</a></li>
+                          <li><a id="Final" class="inactive" href="#">Final</a></li>        
+                      </ul>
+                    </nav>
+                </div>
+                <!-- <div class="reporting">
+                  <div class="statement">
+                    <h4>I am feeling</h4>
+                  </div>
+                  <div id="mental-state-buttons">
+                    <button id="distracted-button" class="btn alternate1">Distracted</button>
+                    <button id="focused-button" class="btn primary">Focused</button>
+                  </div>
+                </div> -->
+              </div>
+
+
+<!-- Calibration -->
+<div id="start" style="width:100%; height:87vh; background-color: #f5f5f5;">
+  <h2 id="STRTstatement">Click Start to begin</h2>
+  <button id="start-btn" class="btn primary reduced-vis">START</button>
+</div>
+
+<!-- Mind Wandering -->
+<div id="wander" style="width:100%; height:93vh; background-color: #f5f5f5;display: none;">
+  <div id="zoned">
+    <h2>Were you zoned out? Please press 'y' on the keyboard for yes, or 'n' on the keyboard for no</h2>
+    <audio id="tone">
+      <source src="https://dl.dropbox.com/s/9i2wallfhiqui8s/beep-06.wav?dl=1"/>
+    </audio>
+  </div>
+</div>
+
+<!-- Instructions  -->
+<div id="csi" class="content-stage" style="display: none;">
+  <div class="hdr">
+    <h2>Forces Frame 0</h2>
+  </div>
+  <div class="ctr">
+    <h3>In this section you will watch two short videos about solving force problems. We will develop a four step procedure to help us solve force problems</h3>
+  </div>
+  <div></div>
+  <div class="ftr">
+    <btn id="btn0" class="btn primary reduced-vis">Next</btn>
+  </div>
+</div>
+
+<input type="hidden" id="userId" value={{context.user}}>
+
+<form id="audio-events" style="display:none">
+  {{context.log}}
+  {%csrf_token%}
+</form>
+
+<form id="audio-events2" style="display:none">
+  {{context.log2}}
+  {%csrf_token%}
+</form>
+
+<form id="mouse-events" style="display: none">
+  {{context.mouse}}
+  {%csrf_token%}
+</form>
+<form id="mouse-events2" style="display: none">
+  {{context.mouse}}
+  {%csrf_token%}
+</form>
+
+    <!-- Content Stage 0 -->
+<div class="content-stage" id="cs0" style="display: none;">
+    <div class="hdr">
+        <h2>
+            Forces Frame 1
+        </h2>
+    </div>
+    <div class="ctr">
+      <!-- Cue Titles for Newton's Second Law -->
+      <h1 id="Force-head"> \(Force\)</h1>
+      <h1 id="Motion-head"> \(Motion\)</h1>
+      <img id="cueA" src="{% static "IMG/Force1/cueA.svg"%}">
+      <img id="cueF" src="{% static "IMG/Force1/cueF.svg"%}">
+
+      <!-- Vector Images (w/components) -->
+      <img id="vec1" src="{% static "IMG/Force1/vec-img1.svg"%}">    
+      <img id="vec2" src="{% static "IMG/Force1/vec-img2.svg"%}">
+      <img id="vec3" src="{% static "IMG/Force1/vec-img3.svg"%}">
+
+      <!-- Newton's Second Law (vector)-->
+      <img id="N2" src="{% static "IMG/Force1/N2.svg"%}">
+
+      <!-- Newton's second law (components) -->
+      <img id="Fnetx" src="{% static "IMG/Force1/Fnetx.svg"%}">
+      <img id="Fnety" src="{% static "IMG/Force1/Fnety.svg"%}">
+      <img id="equals" src="{% static "IMG/Force1/equals.svg"%}">
+      <img id="equals2" src="{% static "IMG/Force1/equals.svg"%}">
+      <img id="max" src="{% static "IMG/Force1/ma_x.svg"%}">
+      <img id="may" src="{% static "IMG/Force1/ma_y.svg"%}">
+
+      <!-- Sum of forces -->
+      <img id="Fnetx2" src="{% static "IMG/Force1/Fnetx.svg"%}">
+      <img id="Fnety2" src="{% static "IMG/Force1/Fnety.svg"%}">
+      <img id="equals11" src="{% static "IMG/Force1/equals.svg"%}">
+      <img id="equals222" src="{% static "IMG/Force1/equals.svg"%}">
+      <img id="equals33" src="{% static "IMG/Force1/equals.svg"%}">
+      <img id="max1" src="{% static "IMG/Force1/ma_x.svg"%}">
+      <img id="may1" src="{% static "IMG/Force1/ma_y.svg"%}">
+      <img id="sumx" src="{% static "IMG/Force1/Sumx.svg"%}">
+      <img id="sumy" src="{% static "IMG/Force1/Sumy.svg"%}">
+
+      <!-- Example Problem -->
+
+      <!-- Axes -->
+      <img id="xax" src="{% static "IMG/Force1/xax.svg"%}">
+      <img id="yax" src="{% static "IMG/Force1/yax.svg"%}">
+
+      <!-- Normal Force -->
+      <img id="fn-vec" src="{% static "IMG/Force1/fn-vec.svg"%}">
+      <img id="fn-lab" src="{% static "IMG/Force1/fn-lab.svg"%}">
+      <img id="fn-lab11" src="{% static "IMG/Force1/fn-lab.svg"%}">
+
+      <!-- Force of gravity -->
+      <img id="Fg-vec" src="{% static "IMG/Force1/Fg-vec.svg"%}">
+      <img id="Fg-lab" src="{% static "IMG/Force1/Fg-lab.svg"%}">
+      <img id="Fg-lab11" src="{% static "IMG/Force1/Fg-lab.svg"%}">
+
+      <!-- Kinetic Friction -->
+      <img id="Ffk-vec" src="{% static "IMG/Force1/Ffk-vec.svg"%}">
+      <img id="Ffk-lab" src="{% static "IMG/Force1/Ffk-lab.svg"%}">
+      <img id="Ffk-lab11" src="{% static "IMG/Force1/Ffk-lab.svg"%}">
+
+      <!-- Tension Force -->
+      <img id="F" src="{% static "IMG/Force1/F.svg"%}">
+      <img id="F-lab" src="{% static "IMG/Force1/F-lab.svg"%}">
+      <img id="F-lab11" src="{% static "IMG/Force1/F-lab.svg"%}">
+
+      <!-- Components (magnitudes) -->
+      <img id="Fy" src="{% static "IMG/Force1/F_y.svg"%}">
+      <img id="Fx" src="{% static "IMG/Force1/fx.svg"%}">
+      <img id="Fy2" src="{% static "IMG/Force1/F_y.svg"%}">
+      <img id="Fy22" src="{% static "IMG/Force1/F_y.svg"%}">
+      <img id="Fx2" src="{% static "IMG/Force1/fx.svg"%}">
+      <img id="xdash" src="{% static "IMG/Force1/xdash.svg"%}">
+      <img id="ydash" src="{% static "IMG/Force1/ydash.svg"%}">
+      <img id="fx-vec2" src="{% static "IMG/Force1/fxvec2.svg"%}">
+      <img id="fy-vec2" src="{% static "IMG/Force1/fyvec2.svg"%}">
+
+      <!-- Fn -->
+      <img id="fn-vec2" src="{% static "IMG/Force1/fn-vec2.svg"%}">
+      <img id="fn-lab2" src="{% static "IMG/Force1/fn-lab2.svg"%}">
+      <img id="fn-lab3" src="{% static "IMG/Force1/fn-lab2.svg"%}">
+
+      <!-- Fg -->
+      <img id="Fg-vec2" src="{% static "IMG/Force1/Fg-vec2.svg"%}">
+      <img id="Fg-lab2" src="{% static "IMG/Force1/Fg-lab2.svg"%}">
+      <img id="Fg-lab3" src="{% static "IMG/Force1/Fg-lab2.svg"%}">
+
+      <!-- Ffk -->
+      <img id="Ffk-vec2" src="{% static "IMG/Force1/Ffk-vec2.svg"%}">
+      <img id="Ffk-lab2" src="{% static "IMG/Force1/Ffk-lab2.svg"%}">
+      <img id="Ffk-lab3" src="{% static "IMG/Force1/Ffk-lab2.svg"%}">
+
+      <!-- Newton's Second Law -->
+      <img id="Fnet" src="{% static "IMG/Force1/Fnet.svg"%}">
+      <img id="ma" src="{% static "IMG/Force1/ma.svg"%}">
+      <img id="plus1" src="{% static "IMG/Force1/plus.svg"%}">
+      <img id="plus2" src="{% static "IMG/Force1/plus.svg"%}">
+      <img id="plus3" src="{% static "IMG/Force1/plus.svg"%}">
+      <img id="minus" src="{% static "IMG/Force1/minus.svg"%}">
+      <!-- <img id="sumx2" src="{% static "IMG/Force1/sumx2.svg"%}">
+      <img id="sumy2" src="{% static "IMG/Force1/sumy2.svg"%}"> -->
+
+      <!-- X-direction vector construction -->
+      <img id="xdash2" src="{% static "IMG/Force1/xdash.svg"%}">
+      <img id="xdash3" src="{% static "IMG/Force1/xdash.svg"%}">
+      <img id="xdash4" src="{% static "IMG/Force1/xdash.svg"%}">
+      
+      <img id="ydash2" src="{% static "IMG/Force1/ydash.svg"%}">
+      <img id="ydash3" src="{% static "IMG/Force1/ydash.svg"%}">
+      <img id="ydash4" src="{% static "IMG/Force1/ydash.svg"%}">
+
+      <!-- max -->
+      <img id="max-vec" src="{% static "IMG/Force1/max-vec.svg"%}">
+      <img id="max-lab" src="{% static "IMG/Force1/max-lab.svg"%}">
+      <img id="max-lab2" src="{% static "IMG/Force1/max-lab.svg"%}">
+
+      <!-- may -->
+      <img id="plus4" src="{% static "IMG/Force1/plus.svg"%}">
+      <img id="minus2" src="{% static "IMG/Force1/minus.svg"%}">
+      <img id="zero" src="{% static "IMG/Force1/Zero.svg"%}">
+
+
+      
+      <div id="prblm-stmnt">
+        <img id="ft-cue1" src="{% static "IMG/Force1/ft_cue1.svg"%}">
+        <img id="ft-cue2" src="{% static "IMG/Force1/ft_cue2.svg"%}">
+        <img id="fg-cue1" src="{% static "IMG/Force1/fg_cue1.svg"%}">
+        <img id="fk-cue1" src="{% static "IMG/Force1/fk_cue.svg"%}">
+        <p>
+          Two children are pulled on a sled by a rope with force \(|\vec{F}_T| = 145N\) that makes an angle of \(\theta = 30^{o}\). Assume the combined mass of 
+          the sled and the children is \(100 kg\), and there is a coefficient of friction \(\mu_k = 0.1\) between the ground and the sled. Find the magnitude of 
+          the normal force \(|\vec{F}_N|\) and the magnitude of the acceleration \(|\vec{a}|\)    
+        </p>
+      </div>
+    </div>
+    <div></div>
+    <div class="ftr">
+      <button class="btn primary reduced-vis" id="btn11">Back</button>
+      <audio class="primary-bg" id="audio" controls controlList="nodownload">
+        <source src="https://dl.dropbox.com/s/b257zcwf081xhrl/Forces-2022-01-13.wav?dl=1"/>
+      </audio>
+      <button id="btn1" class="btn primary reduced-vis">Next</button>
+    </div>
+</div>
+
+
+<div class="content-stage" id="cs1" style="display: none;">
+  <div class="hdr">
+    <h2>
+      Forces Frame 2
+  </h2>
+  </div>
+  <div class="ctr">
+    <img id="diagram1" src="{% static "IMG/Force1/dia1.svg"%}">
+    <img id="diagram2" src="{% static "IMG/Force1/dia2.svg"%}">
+
+    <img id="N2x-eqn1" src="{% static "IMG/Force1/eqn1.svg"%}">
+    <img id="N2y-eqn1" src="{% static "IMG/Force1/eqn2.svg"%}">
+
+    <div id="vec-box">
+      <img id="eqn4" src="{% static "IMG/Force1/eqn4.svg"%}">
+      <img id="eqn5" src="{% static "IMG/Force1/eqn5.svg"%}">
+    </div>
+          
+    <div id="vec-box2">
+      <img id="eqn3" src="{% static "IMG/Force1/eqn3.svg"%}">
+      <img id="eqn6" src="{% static "IMG/Force1/eqn6.svg"%}">
+    </div>
+
+    <img id="eqn7" src="{% static "IMG/Force1/eqn7.svg"%}">
+
+    <img id="eqn8" src="{% static "IMG/Force1/eqn8.svg"%}">
+    <img id="eqn9" src="{% static "IMG/Force1/eqn9.svg"%}">
+    <img id="eqn10" src="{% static "IMG/Force1/eqn10.svg"%}">
+    <img id="eqn11" src="{% static "IMG/Force1/eqn11.svg"%}">
+    <img id="chk1" src="{% static "IMG/Force1/checkmark.svg"%}">
+    <img id="chk2" src="{% static "IMG/Force1/checkmark.svg"%}">
+    <img id="eqn12" src="{% static "IMG/Force1/eqn12.svg"%}">
+    <img id="eqn13" src="{% static "IMG/Force1/eqn13.svg"%}">
+    <img id="eqn14" src="{% static "IMG/Force1/eqn14.svg"%}">
+    <img id="one" src="{% static "IMG/Force1/one.svg"%}">
+    <img id="two" src="{% static "IMG/Force1/two.svg"%}">
+
+    
+
+    <div id="prblm-stmnt2">
+      <img id="ft-cue12" src="{% static "IMG/Force1/ft_cue1.svg"%}">
+      <img id="ft-cue22" src="{% static "IMG/Force1/ft_cue2.svg"%}">
+      <img id="fg-cue12" src="{% static "IMG/Force1/fg_cue1.svg"%}">
+      <img id="fk-cue12" src="{% static "IMG/Force1/fk_cue.svg"%}">
+      <p>
+        Two children are pulled on a sled by a rope with force \(|\vec{F}_T| = 145N\) that makes an angle of \(\theta = 30^{o}\). Assume the combined mass of 
+        the sled and the children is \(100 kg\), and there is a coefficient of friction \(\mu_k = 0.1\) between the ground and the sled. Find the magnitude of 
+        the normal force \(|\vec{F}_N|\) and the magnitude of the acceleration \(|\vec{a}|\)    
+      </p>
+    </div>
+
+  </div>
+  <div></div>
+  <div class="ftr">
+    <button id="btn2" class="btn primary reduced-vis">Back</button>
+    <audio class="primary-bg" id="audio2" controls controlList="nodownload">
+      <source src="https://dl.dropbox.com/s/dd9nk3oz7f4yswi/Force2-2022-01-19.wav?dl=1"/>
+    </audio>
+    <button id="btn3" class="btn primary reduced-vis">Next</button>
+  </div>
+</div>
+
+<div class="content-stage" id="review" style="display: none">
+  <div class="hdr">
+      <h2>
+          Review1
+      </h2>
+  </div>
+  <div id="review-grid" class="ctr">
+      <div id="box1">
+          <div id="box1-stmnt">
+              <h4>1.) Draw Force Diagram</h4>
+          </div>
+          <div id="box1-img">
+              <img id="b1img" src="{% static "IMG/Force1/frame1-img.svg"%}">
+          </div>
+      </div>
+      <div id="box2">
+          <div id="box2-stmnt">
+              <h4>2.) Write Newton's Second Law</h4>
+          </div>
+          <div id="box2-img">
+              <img id="b2img" src="{% static "IMG/Force1/frame2-img.svg"%}">
+          </div>
+      </div>
+
+  </div>
+  <div></div>
+  <div class="ftr">
+      <button id="btn-r1-back" class="btn primary reduced-vis">Back</button>
+      <button id="btn-r1-next" class="btn primary reduced-vis">Next</button>
+  </div>
+</div>
+
+<div class="content-stage" id="review2" style="display: none">
+
+  <div class="hdr">
+      <h2>
+          Review2
+      </h2>
+  </div>
+
+  <div id="review-grid" class="ctr">
+      <div id="box3">
+          <div id="box3-stmnt">
+              <h4>3.) Substitute Knowns</h4>
+          </div>
+          <div id="box3-img">
+              <img id="b3img" src="{% static "IMG/Force1/frame3-img.svg"%}">
+          </div>
+      </div>
+      <div id="box4">
+          <div id="box4-stmnt">
+              <h4>4.) Solve Newton's Laws</h4>
+          </div>
+          <div id="box4-img">
+              <img id="b4img" src="{% static "IMG/Force1/frame4-img.svg"%}">
+          </div>
+      </div>
+
+  </div>
+  <div></div>
+  <div class="ftr">
+      <button id="btn-r2-back" class="btn primary reduced-vis">Back</button>
+      <button id="btn-r2-next" class="btn primary reduced-vis">Next</button>
+  </div>
+</div>
+
+<div class="content-stage" id="fback" style="display: none">
+  <div class="hdr">
+    <h2>Write Newton's Second Law</h2>
+  </div>
+  <div class="ctr">
+    <div id="fb-prblm-stmnt">
+      <p>
+        A crate with mass \(m\) is pushed by a force \(|\vec{F}|\) that points down and to the right. Assume the surface is slightly rough so that friction is acting. 
+        Write Newton's second law. 
+      </p>
+    </div>
+    <div></div>
+    <div id="form-box">
+      <form method="POST" id="question-form">
+        <p id="head">Please select a choice below</p>
+        <div>
+            {% csrf_token %}
+            {{context.form.choice.0}}
+            <label for="q2c1">\(F_{net_x} = F_x + |\vec{F}_{f_k}| = ma \) &nbsp;&nbsp;&nbsp;&nbsp; \(F_{net_y} = |\vec{F}_{N}| - F_y - |\vec{F}_g| = 0 \)</label><br/>
+            {{context.form.choice.1}}
+            <label for="q2c2">\(F_{net_x} = F_x + |\vec{F}_{f_k}| = ma \) &nbsp;&nbsp;&nbsp;&nbsp; \(F_{net_y} = |\vec{F}_{N}|+F_y-|\vec{F}_g| = 0 \)</label><br/>
+            {{context.form.choice.2}}
+            <label for="q2c3">\(F_{net_x} = F_x-|\vec{F}_{f_k}|=ma \) &nbsp;&nbsp;&nbsp;&nbsp; \(F_{net_y} = |\vec{F}_{N}|+F_y - |\vec{F}_g| = 0 \)</label><br/>
+            {{context.form.choice.3}}
+            <label for="q2c4">\(F_{net_x} = F_x - |\vec{F}_{f_k}| = ma \) &nbsp;&nbsp;&nbsp;&nbsp; \(F_{net_y} = |\vec{F}_{N}|-F_y-|\vec{F}_g| = 0 \)</label><br/>
+        </div>
+    </form>      
+    </div> 
+    <img id="img1" src="{% static "IMG/Force1/img1.svg"%}">
+    <img id="img2" src="{% static "IMG/Force1/img2.svg"%}">
+    <img id="img3" src="{% static "IMG/Force1/img3.svg"%}">
+    <img id="img4" src="{% static "IMG/Force1/img4.svg"%}">
+    <img id="img5" src="{% static "IMG/Force1/img5.svg"%}">
+    <img id="img6" src="{% static "IMG/Force1/img6.svg"%}">
+    <img id="img7" src="{% static "IMG/Force1/img7.svg"%}">
+
+    <img id="eqn1" src="{% static "IMG/Force1/fbeqn1.svg"%}">
+    <img id="eqn2" src="{% static "IMG/Force1/fbeqn2.svg"%}">
+    <img id="fbeqn3" src="{% static "IMG/Force1/fbeqn3.svg"%}">
+    <img id="fbeqn4" src="{% static "IMG/Force1/fbeqn4.svg"%}">
+
+    <img id="corr" src="{% static "IMG/Force1/corr_ans.svg"%}">
+
+  </div>
+  <div class="ftr">
+    <div>
+      <button style="opacity: 0"></button>
+    </div>
+      <audio class="primary-bg" id="audio3" controls controlList="nodownload">
+        <source src="https://dl.dropbox.com/s/1i477neowt1cc2i/Force-Feedback-2022-01-23.wav?dl=1"/>
+      </audio>
+    <div>
+      <button class="btn primary reduced-vis" id="nxt-btn">Next</button>
+    </div>
+    <div>
+      <button id="btn8" class="btn primary reduced-vis">Back</button>
+    </div>
+    <div>
+      <button form="question-form" id="sub-btn" class="btn primary reduced-vis" type="submit">Submit</button>
+  </div> 
+  </div>
+</div>
+</div>
+
+<!--calibration-->
+<div id="calibration" class="info wrapper" style="display:none">
+  <div class="hdr"></div>
+  <div class="ctr" style="text-align: center;">
+      <h4>
+          Please tell the research assistant that it is time to calibrate the system. Thanks for your patience!
+      </h4>
+  </div>
+  <div class="ftr">
+      <button id="cal" class="btn primary reduced-vis">Next</button>
+  </div>
+</div>
+
+
+<script src="{% static "JS/forces.js"%}"></script>
+{% endblock %}

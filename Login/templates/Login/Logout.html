@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+
+{% block head %}
+{% load static %}
+
+<link rel="stylesheet" href="{% static "utility.css"%}">
+<link rel="stylesheet" href="{% static "style.css"%}"> 
+<script src="{% static "Login/JS/login.js"%}"></script>
+<title>Welcome!</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+{% endblock %}
+
+{% load static %}
+{% block body %}
+<div class="logged-out">
+    <div id="lo-header">
+        <h1>You have been logged out!</h1>
+    </div>
+    <div id="lo-statement">
+        <h3>Please login to continue using this module</h3>
+    </div>
+    <div id="login-button">
+        <button onclick="login();" class="btn btn-primary">Login</button>
+    </div>
+</div>
+{% endblock %}

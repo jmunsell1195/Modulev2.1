@@ -1,0 +1,331 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static "utility.css"%}">
+<link rel="stylesheet" href="{% static "CSS/content-styles.css"%}"> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Force Module | Vectors</title>
+
+
+
+{% endblock %}
+
+{% block body %}
+            <!-- Navbar -->
+            <div id="navbar" class="navbar-container">
+              <div class="navbar-logo">
+                  <img id="logo" height="48" width="48" alt="" src="{% static "navbarico.svg" %}"></img>
+                  Force Module
+               </div>
+              <div class="tabs">
+                  <nav>
+                    <ul>
+                        <li><a id="Login" class="inactive" href="#">Login</a></li>
+                        <li><a id="Warm-Up" class="inactive" href="#">Warm-Up</a></li>
+                        <li><a id="Instruction" class="active" href="#">Instruction</a></li>
+                        <li><a id="Final" class="inactive" href="#">Final</a></li>        
+                    </ul>
+                  </nav>
+              </div>
+              <!-- <div class="reporting">
+                <div class="statement">
+                  <h4>I am feeling</h4>
+                </div>
+                <div id="mental-state-buttons">
+                  <button id="distracted-button" class="btn alternate1">Distracted</button>
+                  <button id="focused-button" class="btn primary">Focused</button>
+                </div>
+              </div> -->
+            </div>
+
+<input type="hidden" id="userId" value={{context.user}}>
+
+<form id="audio-events" style="display:none">
+  {{context.log}}
+  {%csrf_token%}
+</form>
+
+<form id="audio-events2" style="display:none">
+  {{context.log2}}
+  {%csrf_token%}
+</form>
+
+<form id="mouse-events" style="display: none">
+  {{context.mouse}}
+  {%csrf_token%}
+</form>
+
+
+<div id="start" style="width:100%; height:87vh; background-color: #f5f5f5;">
+  <h2 id="STRTstatement">Click Start to begin</h2>
+  <button id="start-btn" class="btn primary reduced-vis">START</button>
+</div>
+
+<!-- Mind Wandering -->
+<div id="wander" style="width:100%; height:93vh; background-color: #f5f5f5;display: none;">
+  <div id="zoned">
+    <h2>Were you zoned out? Please press 'y' on the keyboard for yes, or 'n' on the keyboard for no</h2>
+    <audio id="tone">
+      <source src="https://dl.dropbox.com/s/9i2wallfhiqui8s/beep-06.wav?dl=1"/>
+    </audio>
+  </div>
+</div>
+
+<!-- Frame 0  -->
+<div id="cs0" class="content-stage" style="display: none;">
+  <div class="hdr">
+    <h2>Vectors Frame 0</h2>
+  </div>
+  <div class="ctr">
+    <h3>In this section you will watch two short videos about vectors and vector components. Vectors 
+      are used to write Newton's second law in a simplified format to make force problems easier to solve.</h3>
+  </div>
+  <div></div>
+  <div class="ftr">
+    <btn id="btn1" class="btn primary reduced-vis">Next</btn>
+  </div>
+</div>
+
+<!-- Frame 1 -->
+<div id="cs1" class="content-stage" style="display: none">
+  <div class="hdr">
+    <h2>Vectors Frame 1</h2>
+  </div>
+  <div class="ctr">
+      <img id="thermo" src="{% static "IMG/vec_1/themo.svg"%}" alt="">
+      <img id="level" src="{% static "IMG/vec_1/level.svg"%}">
+      <img id="level2" src="{% static "IMG/vec_1/level.svg"%}">
+      <img id="level3" src="{% static "IMG/vec_1/level.svg"%}">
+      <img id="grad" src="{% static "IMG/vec_1/grad.svg"%}">
+      <img id="watch" src="{% static "IMG/vec_1/watch.svg"%}">
+      <img id="sec-hand" src="{% static "IMG/vec_1/secHand.svg"%}">
+      <img id="map" src="{% static "IMG/vec_1/map.svg"%}">
+      <img id="a-circ" src="{% static "IMG/vec_1/area_circle.svg"%}">
+      <img id="fh" src="{% static "IMG/vec_1/friends_house.svg"%}">
+      <img id="disp" src="{% static "IMG/vec_1/displacement.svg"%}">
+      <img id="disp2" src="{% static "IMG/vec_1/displacement2.svg"%}">
+      <img id="mh" src="{% static "IMG/vec_1/my_house.svg"%}">
+      <img id="comp" src="{% static "IMG/vec_1/compass.svg"%}">
+      <img id="leg" src="{% static "IMG/vec_1/legend.svg"%}">
+      <img id="fh-leg" src="{% static "IMG/vec_1/friends_house_legend.svg"%}">
+      <img id="mh-leg" src="{% static "IMG/vec_1/my_house_legend.svg"%}">
+      <img id="mag" src="{% static "IMG/vec_1/disp2.svg"%}">
+      <img id="mag2" src="{% static "IMG/vec_1/disp2.svg"%}">
+      <img id="theta" src="{% static "IMG/vec_1/theta1.svg"%}">
+  </div>
+  <div></div>
+  <div class="ftr">
+    <div>
+      <button id="btn2"class="btn primary reduced-vis">Back</button>
+    </div>
+    <audio class="primary-bg" id="audio" controls controlList="nodownload">
+      <source src="https://dl.dropbox.com/s/lfzacwa83xzcj59/vec_1.wav?dl=1"/>
+    </audio>
+    <button id="btn3" class="btn primary reduced-vis">Next</button>
+</div>
+  </div>
+</div>
+
+<!-- Frame 2 -->
+<div id="cs2" class="content-stage" style="display:none">
+  <div class="hdr">
+    <h2>Vectors Frame 2</h2>
+  </div>
+  <div class="ctr">
+    <img id="axes" src="{% static "IMG/vec_2/axes.svg"%}" alt="">
+    <img id="force-lab" src="{% static "IMG/vec_2/F.svg"%}">
+    <img id="force-vec" src="{% static "IMG/vec_2/Fvec.svg"%}">
+    <img id="xcomp-lab" src="{% static "IMG/vec_2/Fx.svg"%}">
+    <img id="ycomp-lab" src="{% static "IMG/vec_2/Fy.svg"%}">
+    <img id="theta2" src="{% static "IMG/vec_2/theta.svg"%}">
+    <img id="theta3" src="{% static "IMG/vec_2/theta.svg"%}">
+    <img id="lightx" src="{% static "IMG/vec_2/lightX.svg"%}">
+    <img id="lighty" src="{% static "IMG/vec_2/lightY.svg"%}">
+    <img id="shadowx" src="{% static "IMG/vec_2/shadowX.svg"%}">
+    <img id="shadowy" src="{% static "IMG/vec_2/shadowY.svg"%}">
+    <img id="magF" src="{% static "IMG/vec_2/magF.svg"%}">
+    <img id="xcomp" src="{% static "IMG/vec_2/xcomp.svg"%}">
+    <img id="xdash" src="{% static "IMG/vec_2/xdash.svg"%}">
+    <img id="ycomp" src="{% static "IMG/vec_2/ycomp.svg"%}">
+    <img id="ydash" src="{% static "IMG/vec_2/ydash.svg"%}">
+    <img id="eqn1" src="{% static "IMG/vec_2/eqn1.svg"%}">
+    <img id="eqn2" src="{% static "IMG/vec_2/eqn2.svg"%}">
+    <img id="eqn3" src="{% static "IMG/vec_2/eqn3.svg"%}">
+    <img id="eqn4" src="{% static "IMG/vec_2/eqn4.svg"%}">
+    <img id="eqn5" src="{% static "IMG/vec_2/eqn5.svg"%}">
+    <img id="eqn6" src="{% static "IMG/vec_2/eqn6.svg"%}">
+    <img id="triangle" src="{% static "IMG/vec_2/triangle.svg"%}">
+    <img id="triangle2" src="{% static "IMG/vec_2/triangle2.svg"%}">
+    <img id="triangle35" src="{% static "IMG/vec_2/triangle2.svg"%}">
+    <img id="cue11" src="{% static "IMG/vec_2/cue11.svg"%}">
+    <img id="cue12" src="{% static "IMG/vec_2/cue12.svg"%}">
+    <img id="cue13" src="{% static "IMG/vec_2/cue11.svg"%}">
+    <img id="cue14" src="{% static "IMG/vec_2/cue12.svg"%}">
+    <img id="cue21" src="{% static "IMG/vec_2/cue21.svg"%}">
+    <img id="cue22" src="{% static "IMG/vec_2/cue22.svg"%}">
+    <img id="cue23" src="{% static "IMG/vec_2/cue21.svg"%}">
+  </div>
+  <div></div>
+  <div class="ftr">
+    <div>
+      <button id="btn4" class="btn primary reduced-vis">Back</button>
+    </div>
+    <audio class="primary-bg" id="audio2" controls controlList="nodownload">
+      <source src="https://dl.dropbox.com/s/gzucruqy1yc83yo/vec_2.wav?dl=1"/>
+    </audio>
+  <div>
+    <button id="btn5" class="btn primary reduced-vis">Next</button>
+  </div>
+</div>
+  </div>
+</div>
+
+<!-- Frame 3 -->
+<div class="content-stage" id="cs3" style="display:none;">
+  <div class="hdr">
+    <h2>Vectors Frame 3</h2>
+  </div>
+  <div class="ctr">
+    <div>
+      <div>
+        <strong><h5>Angle \(\theta \rightarrow x \)</h5></strong>
+      </div>
+      <hr/>
+      <div>
+        <img id="triangle3" src="{% static "IMG/vec_2/triangle2.svg"%}">
+      </div>
+      <div>
+        <img id="eqn7" src="{% static "IMG/vec_2/fxx.svg"%}">
+      </div>
+      <div>
+        <img id="eqn8" src="{% static "IMG/vec_2/fyx.svg"%}">
+      </div>
+    </div>
+    <div>
+      <div>
+        <strong><h5>Angle \(\theta \rightarrow y \)</h5></strong>
+      </div>
+      <hr/>
+      <div>
+        <img id="triangle4" src="{% static "IMG/vec_2/triangle3.svg"%}">
+      </div>
+      <div>
+        <img id="eqn9" src="{% static "IMG/vec_2/fxy.svg"%}">
+      </div>
+      <div>
+        <img id="eqn10" src="{% static "IMG/vec_2/fyy.svg"%}">
+      </div>
+    </div>
+
+  </div>
+  <div></div>
+  <div class="ftr">
+    <button id="btn6" class="btn primary reduced-vis">Back</button>
+    <button id="btn7" class="btn primary reduced-vis">Next</button>
+  </div>
+</div>
+
+<!-- Assessment Question -->
+<!-- <div class="wrapper pretest" id="q-container" style="display: none;">
+  <div class="hdr">
+      <h1>If \( |\vec{A}| = 15 \) and \( \theta = 30^{o} \), What is \( A_x \) and \( A_y \) ?</h1>
+  </div> 
+  <div class="ctr quiz">
+      <div><img src="{% static "pref2.svg"%}"/></div>
+      <div>               
+          <form method="POST" id="question">
+              <p>Please select a choice below</p>
+              <div>
+                  {{context.form.choice.0}}
+                  <label for="q2c1">\(A_x = 13 \) &nbsp;&nbsp;&nbsp;&nbsp; \(A_y = 13 \)</label><br/>
+                  {{context.form.choice.1}}
+                  <label for="q2c2">\(A_x = 7.5 \) &nbsp;&nbsp;&nbsp; \(A_y = 13 \)</label><br/>
+                  {{context.form.choice.2}}
+                  <label for="q2c3">\(A_x = 13 \) &nbsp;&nbsp;&nbsp;&nbsp; \(A_y = 7.5 \)</label><br/>
+                  {{context.form.choice.3}}
+                  <label for="q2c4">None of the above</label><br/>
+                  {% csrf_token %}
+              </div>
+          </form>
+      </div>
+  </div>
+  <div class="ftr">
+      <div id="button-box">
+        <div>
+          <button id="btn8" class="btn primary reduced-vis" onclick="question(false);frame3(true);">Back</button>
+        </div>
+        <div>
+          <button form="question" class="btn primary reduced-vis" type="submit">Submit</button>
+        </div>
+      </div>
+  </div>
+</div> -->
+
+<!-- Feedback -->
+<div class="content-stage" id="question" style="display: none;">
+  <div class="hdr">
+      <h1>If \( |\vec{A}| = 5 \) and \( \theta = 35^{o} \), What is \( A_x \) and \( A_y \) ?</h1>
+  </div> 
+  <div></div>
+  <div class="ctr-quiz">
+      <img id="tri-image" src="{% static "IMG/vec_3/tri-image.svg"%}">
+      <img id="vec-image" src="{% static "IMG/vec_3/vec-img.svg"%}">
+      <img id="cue51" src="{% static "IMG/vec_2/cue11.svg"%}">
+      <img id="cue52" src="{% static "IMG/vec_2/cue12.svg"%}">
+      <img id="cue53" src="{% static "IMG/vec_2/cue11.svg"%}">
+      <img id="cue54" src="{% static "IMG/vec_2/cue12.svg"%}">
+      <img id="cue55" src="{% static "IMG/vec_2/cue11.svg"%}">
+      <img id="cue56" src="{% static "IMG/vec_2/cue12.svg"%}">
+      <img id="cue61" src="{% static "IMG/vec_2/cue21.svg"%}">
+      <img id="cue62" src="{% static "IMG/vec_2/cue21.svg"%}">
+      <img id="cue63" src="{% static "IMG/vec_2/cue21.svg"%}">
+      <img id="eqn51" src="{% static "IMG/vec_3/eqn1.svg"%}">
+      <img id="eqn52" src="{% static "IMG/vec_3/eqn2.svg"%}">
+      <img id="eqn53" src="{% static "IMG/vec_3/eqn3.svg"%}">
+      <img id="eqn54" src="{% static "IMG/vec_3/eqn4.svg"%}">
+      <img id="eqn55" src="{% static "IMG/vec_3/eqn5.svg"%}">
+      <img id="eqn56" src="{% static "IMG/vec_3/eqn6.svg"%}">
+      <img id="eqn57" src="{% static "IMG/vec_3/eqn7.svg"%}">
+      <img id="eqn58" src="{% static "IMG/vec_3/eqn8.svg"%}">
+      <img id="eqn59" src="{% static "IMG/vec_3/eqn9.svg"%}">
+      <img id="eqn60" src="{% static "IMG/vec_3/eqn10.svg"%}">
+      <div id="form-box">
+        <form method="POST" id="question-form">
+          <p>Please select a choice below</p>
+          <div>
+              {%csrf_token%}
+              {{context.form.choice.0}}
+              <label for="q2c1">\(A_x = 4.1 \) &nbsp;&nbsp;&nbsp;&nbsp; \(A_y = 2.9 \)</label><br/>
+              {{context.form.choice.1}}
+              <label for="q2c2">\(A_x = 2.9 \) &nbsp;&nbsp;&nbsp; \(A_y = 2.9 \)</label><br/>
+              {{context.form.choice.2}}
+              <label for="q2c3">\(A_x = 2.9 \) &nbsp;&nbsp;&nbsp;&nbsp; \(A_y = 4.1 \)</label><br/>
+              {{context.form.choice.3}}
+              <label for="q2c4">None of the above</label><br/>
+          </div>
+      </form>      
+      </div>    
+  </div>
+  <div></div>
+  <div class="ftr">
+        <div>
+          <button style="opacity: 0"></button>
+        </div>
+          <audio class="primary-bg" id="audio3" controls controlList="nodownload">
+            <source src="https://dl.dropbox.com/s/jzuf69tt1rub030/vec_3.wav?dl=1"/>
+          </audio>
+        <div>
+          <button class="btn primary reduced-vis" id="nxt-btn">Next</button>
+        </div>
+        <div>
+          <button id="btn8" class="btn primary reduced-vis">Back</button>
+        </div>
+        <div>
+          <button form="question-form" id="sub-btn" class="btn primary reduced-vis" type="submit">Submit</button>
+        </div>
+  </div>
+</div>
+      <script src="{% static "JS/vec.js"%}"></script>
+{% endblock %}

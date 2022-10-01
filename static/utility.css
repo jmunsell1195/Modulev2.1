@@ -1,0 +1,604 @@
+/* Global Styles */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&family=Roboto:ital,wght@0,100;0,400;1,400&display=swap');
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+    font-size: 1rem;
+    line-height: 1.6;
+    background-color: #e9ecef;
+    color: #333;
+  }
+
+
+:root {
+    --primary-color: #352355;
+    --dark-color: #000;
+    --light-color: #e9ecef;
+    --danger-color: #dc3545;
+    --success-color: #28a745;
+  }
+
+  /* Navbar Styles */
+  .navbar-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-direction: row;
+      background: whitesmoke;
+      padding: 10px 0;
+      width: 100%;
+      opacity: 0.95;
+      height: 7.5vh;
+      color: #333;
+  }
+
+  nav ul li a.active {
+      font-size: 1.2rem;
+      color: #5278EB;
+  }
+
+  .inactive {
+      font-size: 0.9rem;
+      color: #e9ecef;
+  }
+  .navbar-logo {
+      padding: 0 10px;
+  }
+
+
+  .tabs {
+    display: flex;
+    padding: 0 15px;
+  }
+
+  .tabs ul {
+      list-style: none;
+      display: inline;
+  }
+
+  .tabs li {
+      display: inline;
+  }
+
+  .tabs a {
+      text-decoration: none;
+      padding: 15px;
+      color: #333;
+  }
+
+  .reporting {
+      display: flex;
+      flex-direction: row;
+      font-size: 0.8rem;
+      border: #333 1px solid;
+      align-items: center;
+      border-radius: 10px;
+      margin-right: 15px;
+  }
+
+  .reporting h4 {
+    margin: 2px;
+    padding: 0 10px;
+    font-size: 1rem;
+}
+
+/* Buttons */
+
+.btn {
+    border: none; 
+    margin: 5px;
+}
+
+.alternate3{
+    background-color: #343a40
+}
+
+.alternate2{
+    background-color: #3F90D4;
+}
+
+.alternate1{
+    background-color: #c2c2c2;
+}
+
+audio {
+    width: 80%;
+    height: 1rem;
+}
+
+.reduced-vis{
+    font-size: 0.7rem;
+    padding: 0.1rem;
+}
+
+.clicked{
+    background-color: red;
+}
+
+audio::-webkit-media-controls-panel {
+    background-color:#8c979d;;
+    opacity: 0.9;
+}
+
+.primary-bg{
+    background-color: #8c979d;
+    border-radius: 0.7rem;
+}
+
+.primary{
+    background-color: #8c979d;
+    margin: 30px;
+}
+
+.secondary{
+    background-color: #9da5aa;
+}
+
+#focused-button, #distracted-button {
+    width: 150px;
+}
+
+.custbut{
+    font-size: 1.2rem;
+    background-color: #fff;
+    padding: 0;
+    width: 5vw;
+    height: 5vh;
+    text-align: center;
+    line-height: 0px;
+    border: none;
+    -moz-box-shadow: 0px 0px 2px #fff;
+    -webkit-box-shadow: 0px 0px 2px #fff;
+    box-shadow: 0px 0px 2px #fff;
+  }
+
+  .custbut:hover{
+    background-color: #6359FB
+  }
+
+  .custbut:active{
+    transform: scale(0.9);
+    background-color: #6c63ff;
+  }
+  .custbut:focus{
+    background-color: #6c63ff;
+  }
+
+  .main {
+    padding: 0.5rem 3rem;
+    margin: 30px;
+    width: 12rem;
+}
+
+
+/* bottom bar styles */
+#bottombar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    bottom: 0vh;
+    width: 100%;
+    height: 7vh;
+    z-index:5;
+    background: whitesmoke;
+    opacity: 0.95;
+}
+
+#bottombar > div {
+    padding: 0.25rem;
+}
+
+#cr{
+    font-size: small;
+}
+
+#bottombar p {
+    margin:auto; 
+    text-align: center; 
+}
+
+#logout-button {
+    height: 1rem;
+    font-size: large;
+    padding: 0;
+}
+
+@media(max-width: 1400px) {
+    button#logout-button.btn {
+        height: 0.5rem;
+        font-size: medium;
+        padding: 0;
+        margin: 0.5rem;
+    }
+
+    #bottombar{
+        height: 6.5vh;
+    }
+}
+
+
+/* content-area */
+
+/*################
+  ################
+  ## Login Page ##
+  ################
+  ################*/
+
+
+
+/*#######
+   Login
+   Form 
+#######*/
+
+#login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30vw;
+}
+
+div#login-container{
+    padding: 5vw;
+    margin: 5vw;
+}
+
+.form-wrap.login {
+    padding: 1vw 1vw;
+    border-radius: 20px;
+    background-color: #8c979d;
+    -moz-box-shadow: 0px 0px 10px #8c979d;
+    -webkit-box-shadow: 0px 0px 10px #8c979d;
+    box-shadow: 0px 0px 10px #8c989d;
+}
+
+.form-wrap.login h3 {
+    text-align: center;
+    font-size: 2rem;
+}
+
+#login-container img {
+    height: 80%;
+}
+
+.login-img {
+    margin: 5vw;
+}
+
+#login-container input{
+    margin: 1vh;
+    padding: 1vh;
+    width: 25vw;
+    height: 2.5vw;
+    border-radius: 10px;
+    border: none;
+}
+
+#login-container input:focus, #login-container input:active {
+    border: 1px solid #6c63ff;
+}
+
+.button-box {
+    margin-top: 2vw;
+    display: flex;
+    justify-content: center;
+
+}
+
+.button-box button {
+    border-color: #333;
+    margin: 0 50px;
+    width: 100px;
+}
+
+ /*######## 
+    Login 
+    Form 
+    Errors 
+ #########*/
+
+ .error {
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+ }
+
+ .error .flex-item h5 {
+     color: red;
+ }
+
+ /*############
+      User
+      Help
+    Section
+###############*/
+
+ #help{
+     width: 100%;
+     height: 85%;
+     top: 50%;
+     display: none;
+     grid-template-areas: 
+     "hdr hdr hdr"
+     "box1 box2 box3"
+     "box4 box5 box6"
+     "box7 box8 box9"
+     "ftr ftr ftr";
+     align-items: center;
+     justify-content: center;
+     padding: 2vw;
+     grid-gap: 1.5vw;
+
+ }
+
+#help .box1 img {
+    width: 10rem
+}
+
+.heading{grid-area: hdr;}
+.box1{grid-area: box1;}
+.box2{grid-area: box2;}
+.box3{grid-area: box3;}
+.box4{grid-area: box4;}
+.box5{grid-area: box5;}
+.box6{grid-area: box6;}
+.box7{grid-area: box7;}
+.box8{grid-area: box8;}
+.box9{grid-area: box9;}
+.box10{grid-area: ftr;}
+
+#help > div {
+    font-size: 1.5rem;
+    text-align: center;
+    font-size: 2rem;
+}
+
+/*#################
+  #################
+  ## Logout Page ##
+  #################
+  #################*/
+
+.logged-out {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 85%;
+}
+
+.logged-out > div {
+    text-align: center;
+}
+
+/*######################
+  ######################
+  ## Module Selection ##
+  ##    (Main) Page   ##
+  ######################
+  ######################*/
+
+  .contr{
+      height: 85vh;
+  }
+  .choose-module {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 1vh 10vw;
+      margin: auto;
+      top: 50%;
+      height: 85%;
+      
+  }
+    
+  .choose-module > div {
+      width: 60%;
+      align-items: center;
+      vertical-align: middle;
+      padding: 4.5vh;
+      margin: auto;
+      text-align: center;
+      border-radius: 20px;
+  }
+
+  .choose-module button {
+    width: 60%;
+    align-items: center;
+    vertical-align: middle;
+    padding: 4.5vh;
+    margin: 1vh;
+    text-align: center;
+    border-radius: 20px;
+}
+
+.choose-module > div a {
+    text-decoration: none;
+    font-size: 1.5rem;
+}
+
+
+/*######################
+  ######################
+  ##     Info Page    ##
+  ######################
+  ######################*/
+
+
+  /* Simple 3 row container with heading single content area and footer */
+ .wrapper{
+    display: grid;
+    grid-template-rows: 1fr 2fr 1fr;
+    height: 75vh;
+    margin: 5vh 5vw;
+    align-items: center;
+    justify-content: center;
+    background-color: whitesmoke;
+    border-radius: 30px;
+ }
+
+ .wrapper input {
+     width: 3rem;
+ }
+
+ .wrapper ul li {
+     list-style: none;
+ }
+
+.info.wrapper .hdr{
+    padding: 0 15vw;
+    text-align: center;
+}
+
+ .ctr{
+     display: flex;
+     justify-content: space-evenly;
+     align-items: center;
+ }
+
+form{
+    font-size: 1.3rem;
+}
+
+.ctr.quiz img {
+    width: 20vw;
+}
+
+ .ftr{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+ .wrapper table img {
+     width: 1.5rem;
+     margin: 1rem 2rem;
+ }
+
+ .info.wrapper table {
+     font-size: 1.2rem;
+ }
+
+ .info.wrapper .ctr{
+     padding: 0 20vw;;
+ }
+
+ #ftr2{
+     justify-content: space-around;
+     padding: 0 15vw;
+ }
+
+ /*######################
+  ######################
+  ##     Pre-Test     ##
+  ######################
+  ######################*/
+
+  .wrapper img {
+      width: 17vw;
+  }
+
+#q7-container.wrapper img{
+    height: 40vh;
+} 
+
+  .wrapper.pretest .hdr{
+      padding: 0 5vw;
+      margin: 5vh 0;
+      text-align: center;
+  } 
+
+  /* form#question4 > div {
+      display: inline;
+      padding-right: 2vw;
+  } */
+
+.ctr form .ctr-container {
+    display: grid;
+    grid-template-columns: repeat(4,auto);
+    align-items: center;
+    justify-content: space-between;
+    grid-gap: 1rem 5rem;
+  }
+
+  input {
+      width: 1.2rem;
+      height: 1.2rem;
+  }
+
+ .ftr #button-box {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-direction: row;
+  }
+
+#pre-statement .ctr {
+    padding: 0 10vw;
+}
+
+ /*######################
+  ######################
+  ##      Vectors     ##
+  ######################
+  ######################*/
+
+.content-stage{
+    display: grid;
+    grid-template-rows: 1fr 4fr 1fr;
+    grid-template-columns: 1fr 6fr 1fr;
+    align-items: center;
+    justify-content: center;
+    background-color: whitesmoke;
+    border-radius: 30px;
+    margin: 2% auto;
+    overflow: hidden;
+ }
+
+ @media(max-width: 1400px){
+     .content-stage{
+         margin: 1% auto;
+     }
+ }
+
+
+.content-stage .hdr {
+    grid-column: 1 /span 3;
+    text-align: center;
+}
+
+.content-stage .ctr {
+ grid-column: 1 /span 3;
+ width: 85%;
+ height: 25rem;
+ border: 1px black solid;
+ border-radius: 20px;
+ margin:auto;
+ margin-top: 0;
+ position: relative;
+ overflow: hidden;
+ margin-top: 1rem;
+}
+
+.content-stage .ftr{
+    justify-content: space-between;
+    grid-column: 1 /span 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+

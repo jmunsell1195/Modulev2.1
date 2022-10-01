@@ -1,0 +1,678 @@
+ /*######################
+  ######################
+  ##      Vectors     ##
+  ######################
+  ######################*/
+
+/* Mind Wandering */
+
+#start{
+    text-align: center;
+}
+
+#STRTstatement{
+    position: absolute;
+    width: 30%;
+    left: 35%;
+    top: 35%;
+}
+
+#wander{
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 87vh;
+    z-index: 10;
+}
+
+#zoned{
+    padding: 10vw;
+    margin-top:10%;
+    text-align: center
+}
+
+/* Screen1 */
+
+ #thermo {
+    position: absolute;
+    height: 18rem;
+    top: 3rem;
+    left: 29.5rem;
+}
+
+#level,#level2,#level3 {
+    position: absolute;
+    width: 2.2rem;
+    left: 31.15rem;
+    top: 13rem;
+}
+
+#grad {
+    position: absolute;
+    height: 8rem;
+    left: 31.8rem;
+    top: 7rem;
+}
+
+#watch {
+    position: absolute;
+    height: 18rem;
+    left: 28.4rem;
+    opacity: 0
+}
+#sec-hand {
+    position: absolute;
+    left: 32.275rem;
+    top: 11.35rem;
+    height: 4rem;
+    z-index: 1;
+    opacity: 0;
+    transform-origin: center 22.5%;
+}
+
+#map {
+    height: 100%;
+    z-index: 1;
+    position: absolute;
+    left: 13rem;
+    opacity: 0
+}
+
+#leg,#disp,#comp,#theta,#mag,#fh {
+    z-index: 2;
+    position: absolute;
+    opacity: 0;
+}
+
+#a-circ {
+    position: absolute;
+    left: -5rem;
+    top: -2rem;
+    width: 50.2rem;
+}
+
+
+#fh {
+  left: 37rem;
+  top: 3.7rem;  
+  width: 2.5rem;
+  opacity: 0;
+} 
+
+#mh {
+    left: 19.5rem;
+    top: 20.1rem;
+    width: 2.5rem;
+}
+
+#leg {
+    left: 40rem;
+    top: 9rem;
+    width: 10rem;
+}
+
+#fh-leg, #mh-leg,#mh,#a-circ,#disp2, #mag2 {
+    position: absolute;
+    z-index: 3;
+    opacity: 0;
+}
+ #fh-leg {
+    left: 41rem;
+    top: 12rem;
+    width: 8rem;
+    opacity: 0;
+}
+
+#mh-leg {
+    left: 41rem;
+    top: 10rem;
+    width: 8rem;
+}
+
+#mag {
+    left: 23.5rem;
+    top: 10rem;
+    width: 10rem;
+    opacity: 0;
+    transform-origin: 50% 50%;
+    transform: rotate(318deg);
+}
+
+#disp {
+    width: 18rem;
+    left: 20.5rem;
+    top: 4.8rem;
+}
+
+#disp2 {
+    width: 23.5rem;
+    left: 21.8rem;
+    top: 20rem;
+}
+
+#comp {
+    left: 19.5rem;
+    top: 7.8rem;
+    width: 15rem;
+}
+
+#theta {
+    left: 25rem;
+    top: 18rem;
+    width: 1.5rem;
+}
+
+#mag2 {
+    top: 17rem;
+    left: 28rem;
+}
+
+/* Screen2 */
+
+#axes {
+    position: absolute;
+    width: 30rem;
+    left: 18.6rem;
+    top: 1rem;
+    z-index:1;
+}
+
+
+#force-vec {
+    position: absolute;
+    opacity:0;
+    width:12rem; 
+    left: 32.6rem;
+    top: 9.75rem;
+    z-index: 3;
+}
+
+#xcomp-lab{
+    opacity: 0;
+    position: absolute;
+    left: 37.8rem;
+    width: 2.5rem;
+    top: 18.5rem;
+}
+
+#ycomp-lab{
+    opacity: 0
+}
+
+#lightx{
+    opacity: 0
+}
+
+#ycomp-lab{
+    position: absolute;
+    opacity: 0;
+    width: 2.6rem;
+    left: 29.5rem;
+    top: 12.9rem;
+    fill: #6c63ff;
+}
+
+#lightx{
+    position: absolute;
+    opacity: 0;
+    left: 32.6rem;
+    height: 13rem;
+    top: 4.6rem;
+}
+#lighty{
+    position: absolute;
+    opacity: 0;
+    top: -17.8rem;
+    width: 13rem;
+    left: 32.6rem;
+}
+
+#shadowx{
+    position: absolute;
+    opacity: 0;
+    left: 32.6rem;
+    top: 9.8rem;
+    height: 7.8rem;
+    
+}
+
+#shadowy{
+    position: absolute;
+    opacity: 0;
+    height: 7.8rem;
+    left: 32.6rem;
+    top:9.75rem;
+}
+
+#xcomp{
+    position: absolute;
+    opacity: 0;
+    width: 11.9rem;
+    left: 32.8rem;
+    top: 17.45rem;
+    z-index: 2;
+}
+
+#ycomp{
+    position: absolute;
+    opacity: 0;
+    top: 9.7rem;
+    height: 7.95rem;
+    left: 32.5rem;
+    z-index: 2;
+}
+
+#xdash{
+    position: absolute;
+    opacity: 0;
+    left: 44.5rem;
+    top: 9.75rem;
+    height: 8rem;
+}
+
+#ydash{
+    position: absolute;
+    opacity: 0;
+    left: 32.5rem;
+    width: 12.1rem;
+    top: 9.65rem;
+}
+
+#eqn1{
+    position: absolute;
+    left: 7rem;
+    top: 2.5rem;
+    width: 16rem;
+    opacity: 0;
+    z-index: 3;
+}
+
+#eqn2{
+    position: absolute;
+    left: 10rem;
+    top: 10.5rem;
+    width: 22rem;
+    opacity: 0;
+    z-index: 3;
+}
+
+#eqn3{
+    position: absolute;
+    left: 11rem;
+    top: 15.5rem;
+    width: 18rem;
+    opacity: 0;
+    z-index: 3;
+}
+
+#eqn4{
+    position: absolute;
+    left: 7rem;
+    top: 2.5rem;
+    width: 16rem;
+    opacity: 0;
+    z-index: 3;
+}
+
+#eqn5{
+    position: absolute;
+    left: 10rem;
+    top: 10.5rem;
+    width: 22rem;
+    opacity: 0;
+    z-index: 3;
+}
+
+#eqn6{
+    position: absolute;
+    left: 11rem;
+    top: 15.5rem;
+    width: 18rem;
+    opacity: 0;
+    z-index: 3;
+}
+
+#theta3{
+    position: absolute;
+    left: 35rem;
+    top: 11.5rem;
+    opacity: 0;
+    z-index: 3;
+    width: 1.5rem;
+}
+
+#theta2{
+    position: absolute;
+    left: 38rem;
+    top: 14.5rem;
+    opacity: 0;
+    z-index: 3;
+    width: 1.5rem;
+}
+
+#triangle{
+    position: absolute;
+    left: 32.5rem;
+    top: 9.7rem;
+    width: 12rem;
+    opacity:0
+}
+
+#magF {
+    position:absolute;
+    width: 3.3rem;
+    left: 41.4rem;
+    top: 5.1rem;
+    z-index: 3;
+    opacity: 0
+}
+
+#force-lab {
+    position:absolute;
+    left: 42rem;
+    top: 5.1rem;
+    z-index: 3;
+    opacity: 0;
+    width: 2.2rem;
+}
+
+#triangle2 {
+    position: absolute;
+    z-index: 3;
+    left: 32.57rem;
+    width: 15.6rem;
+    top: 8.5rem;
+    opacity:0;
+}
+
+#cue11{
+    position: absolute;
+    left: 9.8rem;
+    top: 9.9rem;
+    width: 4.5rem;
+    opacity: 0
+}
+
+#cue12{
+    position: absolute;
+    left: 44.6rem;
+    top: 16.25rem;
+    width: 5rem;
+    opacity: 0
+}
+
+#cue13{
+    position: absolute;
+    left:10.5rem;
+    top: 15.5rem;
+    width: 4rem;
+    opacity: 0
+}
+
+#cue14{
+    position: absolute;
+    left: 55.6rem;
+    top: 8.75rem;
+    width: 5rem;
+    opacity: 0
+}
+
+#cue21{
+    position: absolute;
+    left: 17.7rem;
+    top: 9.9rem;
+    width: 4.7rem;
+    opacity: 0
+}
+
+#cue22{
+    position: absolute;
+    width:5.9rem;
+    left: 42rem;
+    top: 2.7rem;
+    opacity: 0
+}
+
+#cue23{
+    position: absolute;
+    left:17.6rem;
+    top: 15.4rem;
+    width: 4.2rem;
+    opacity: 0
+}
+
+/* Screen 3 */
+
+#cs3.content-stage .ctr > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: #e9ecef;
+}
+
+#triangle3,#triangle4 {
+    width: 10rem;
+    margin-bottom: 2rem;
+}
+
+#eqn7,#eqn8,#eqn9,#eqn10 {
+    margin: 0.5rem;
+}
+
+#cs0.content-stage .ctr {
+    padding: 5rem;
+    text-align: center;
+}
+
+
+
+#cs0.content-stage .ftr {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Question/Feedback */
+
+#feedback.content-stage .ctr-quiz {
+    position: relative;
+}
+
+#vec-image {
+    width: 25rem;
+    position: absolute;
+    left: 17.5rem;
+    top: 15rem;
+    z-index: 1;
+}
+
+#tri-image {
+    width: 25rem;
+    position: absolute;
+    left: 17.5rem;
+    top: 15rem;
+    opacity: 0;
+    z-index: 2;
+}
+
+#form-box {
+    position: absolute;
+    left: 52.5rem;
+    top: 18rem;
+    opacity: 1;
+}
+
+#audio3 {
+    display: none;
+}
+
+#nxt-btn {
+    display: none;
+}
+
+#cue51,#cue52,#cue53,#cue54,#cue55,#cue56,#cue61,#cue62,#cue63{
+    position: absolute;
+}
+
+#cue51{
+    left: 24.9rem;
+    top: 21.9rem;
+    height: 3.2rem;
+    opacity: 0
+}
+
+#cue52{
+    left: 29.8rem;
+    top: 16.25rem;
+    height: 3rem;
+    opacity: 0
+}
+
+#cue53{
+    left: 52.3rem;
+    top: 19.5rem;
+    width: 15rem;
+    transform: scaleY(0.18);
+    opacity: 0
+}
+
+#cue54{
+    opacity: 0;
+    left:28.8rem;
+    top: 22.5rem;
+    height: 2.5rem;
+    transform: scaleX(0.5)
+}
+
+#cue55{
+    opacity: 0;
+    left:56.8rem;
+    top: 20rem;
+    width: 3rem;
+}
+
+#cue56 {
+    opacity: 0;
+    left: 57.1rem;
+    top: 24.5rem;
+    height:2.5rem;
+}
+
+#cue61{
+    left: 32.8rem;
+     top:22.5rem;
+     height: 3.7rem;
+     transform: scaleX(0.85);
+     opacity: 0
+}
+
+#cue62{
+    opacity: 0;
+    left: 61.8rem;   
+    width: 2.7rem;
+    top: 24.5rem;
+}
+
+#cue63 {
+    opacity: 0;
+    left: 61.7rem;
+    top: 20rem;
+    width: 3rem;
+}
+
+#eqn51 {
+    position: absolute;
+    left: 55rem;
+    top: 14.5rem;
+    width: 10rem;
+    opacity: 0
+}
+
+#eqn52 {
+    position: absolute;
+    left: 57rem;
+    top: 20.5rem;
+    width: 13.5rem;
+    opacity: 0
+}
+
+#eqn53 {
+    position: absolute;
+    opacity: 1;
+    left: 57.5rem;
+    top: 24.5rem;
+    width: 11.5rem;
+    opacity: 0
+}
+
+#eqn54 {
+    position: absolute;
+    opacity: 1;
+    left: 57.5rem;
+    top: 29.5rem;
+    width: 12.9rem;
+    opacity: 0;
+}
+
+#eqn55 {
+    position: absolute;
+    left: 55rem;
+    top: 14.5rem;
+    width: 10rem;
+    opacity: 0
+}
+
+#eqn56 {
+    position: absolute;
+    left: 57rem;
+    top: 20.5rem;
+    width: 13.5rem;
+    opacity: 0
+}
+
+#eqn57 {
+    position: absolute;
+    opacity: 0;
+    left: 57.5rem;
+    top: 24.5rem;
+    width: 11.5rem;
+}
+
+#eqn58 {
+    position: absolute;
+    opacity: 1;
+    left: 57.5rem;
+    top: 29.5rem;
+    width: 12.9rem;
+    opacity: 0
+}
+
+#eqn59 {
+    position: absolute;
+    opacity: 1;
+    left: 57rem;
+    top: 20rem;
+    width: 12rem;
+    opacity: 0
+
+}
+
+#eqn60 {
+    position: absolute;
+    opacity: 1;
+    left: 57.5rem;
+    top: 24.5rem;
+    width: 12rem;
+    opacity: 0
+}
+
+#triangle35 {
+    position: absolute;
+    left: 38rem;
+    top: 2.85rem;
+    width: 22rem;
+    opacity: 0
+}

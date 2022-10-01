@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+
+{% block head %}
+{% load static %}
+
+<link rel="stylesheet" href="{% static "utility.css"%}">
+<link rel="stylesheet" href="{% static "style.css"%}"> 
+<script src="{% static "JS/main_page.js"%}"></script>
+<title>Module Select</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+{% endblock %}
+
+{% load static %}
+{% block body %}
+            <!-- Navbar -->
+            <div id="navbar" class="navbar-container">
+                <div class="navbar-logo">
+                    <img id="logo" height="48" width="48" alt="" src="{% static "navbarico.svg" %}"></img>
+                    Module
+                 </div>
+                <div class="tabs">
+                    <nav>
+                      <ul>
+                          <li><a id="Login" class="inactive" href="#">Login</a></li>
+                          <li><a id="Warm-Up" class="active" href="#">Warm-Up</a></li>
+                          <li><a id="Instruction" class="inactive" href="#">Instruction</a></li>
+                          <li><a id="Final" class="inactive" href="#">Final</a></li>        
+                      </ul>
+                    </nav>
+                </div>
+                <!-- <div class="reporting">
+                  <div class="statement">
+                    <h4>I am feeling</h4>
+                  </div>
+                  <div id="mental-state-buttons">
+                    <button id="distracted-button" class="btn alternate1">Distracted</button>
+                    <button id="focused-button" class="btn primary">Focused</button>
+                  </div>
+                </div> -->
+              </div>
+
+<div class="choose-module">
+    <div id="statement">
+        <h1>Please Choose a Module</h1>
+        <button id="force-module" class="btn secondary" onclick="force_page();"><strong>Force</strong></button>
+
+    </div>
+</div>
+
+
+
+{% endblock %}

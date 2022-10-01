@@ -1,0 +1,389 @@
+{% extends "base.html" %}
+
+
+{% block head %}
+{% load static %}
+<link rel="stylesheet" href="{% static "utility.css"%}">
+<link rel="stylesheet" href="{% static "style.css"%}"> 
+<title>Force Module | Warmup</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+{% endblock %}
+
+{% load static %}
+{% block body %}
+            <!-- Navbar -->
+            <div id="navbar" class="navbar-container">
+                <div class="navbar-logo">
+                    <img id="logo" height="48" width="48" alt="" src="{% static "navbarico.svg" %}"></img>
+                    Force Module
+                 </div>
+                <div class="tabs">
+                    <nav>
+                      <ul>
+                          <li><a id="Login" class="inactive" href="#">Login</a></li>
+                          <li><a id="Warm-Up" class="active" href="#">Warm-Up</a></li>
+                          <li><a id="Instruction" class="inactive" href="#">Instruction</a></li>
+                          <li><a id="Final" class="inactive" href="#">Final</a></li>        
+                      </ul>
+                    </nav>
+                </div>
+                <!-- <div class="reporting">
+                  <div class="statement">
+                    <h4>I am feeling</h4>
+                  </div>
+                  <div id="mental-state-buttons">
+                    <button id="distracted-button" class="btn alternate1">Distracted</button>
+                    <button id="focused-button" class="btn primary">Focused</button>
+                  </div>
+                </div> -->
+              </div>
+
+<form id="page-events" style="display: none">
+    {{forms.log}}
+    {%csrf_token%}
+</form>
+<form id="mouse-events" style="display: none">
+    {{forms.mouse}}
+    {%csrf_token%}
+</form>
+<form id="mouse-events2" style="display: none">
+    {{forms.mouse}}
+    {%csrf_token%}
+</form>
+
+<div id="start" style="width:100%; height:87vh; background-color: #f5f5f5;">
+    <h2 id="STRTstatement">Click Start to begin</h2>
+    <button id="start-btn" class="btn primary reduced-vis">START</button>
+  </div>
+
+<div id="pre-statement" class="wrapper pretest">
+    <div class="hdr">
+        <h1>In the present section</h1>
+    </div>
+    <div class="ctr">
+        <h3>We will answer a few questions just to get warmed up and get a background. This is the place to show us what you already know. Relax and do your best!</h3>
+    </div>
+    <div class="ftr">
+        <button id="pre-btn" class="btn primary reduced-vis">Next</button>
+    </div>
+</div>
+
+<!-- Question 1 -->
+<div class="wrapper pretest" id="q1-container" style="display: none;">
+    <div class="hdr">
+        <h1>If \( |\vec{A}| = 10 \) and \( \theta = 15^{o} \), What is \( A_x \) and \( A_y \) ?</h1>
+    </div> 
+    <div class="ctr quiz">
+        <div><img class="img-primary" src="{% static "IMG/Pre/pref1.svg"%}"/></div>
+        <div>               
+            <form method="POST" id="question1">
+                <p>Please select a choice below</p>
+                {{forms.form1.choice.0}}
+                <label for="id_choice_0">\(A_x = 9.7 \) &nbsp;&nbsp;&nbsp; \(A_y = 9.7 \)</label><br/>
+                {{forms.form1.choice.1}}
+                <label for="id_choice_1">\(A_x = 2.6 \) &nbsp;&nbsp;&nbsp; \(A_y = 9.7 \)</label><br/>
+                {{forms.form1.choice.2}}
+                <label for="id_choice_2">\(A_x = 9.7 \) &nbsp;&nbsp;&nbsp; \(A_y = 2.6 \)</label><br/>
+                {{forms.form1.choice.3}}
+                <label for="id_choice_3">None of the above</label><br/>
+                {% csrf_token %}
+            </form>
+        </div>
+    </div>
+    <div class="ftr">
+        <div id="button-box">
+            <button id="btn1" form="question1" class="btn primary reduced-vis" type="submit">Submit</button>
+        </div>
+    </div>
+</div>
+
+<!-- Question 2 -->
+<div class="wrapper pretest" id="q2-container" style="display: none;">
+    <div class="hdr">
+        <h1>If \( |\vec{A}| = 15 \) and \( \theta = 30^{o} \), What is \( A_x \) and \( A_y \) ?</h1>
+    </div> 
+    <div class="ctr quiz">
+        <div><img src="{% static "IMG/Pre/pref2.svg"%}"/></div>
+        <div>               
+            <form method="POST" id="question2">
+                <p>Please select a choice below</p>
+                <div>
+                    {{forms.form2.choice.0}}
+                    <label for="q2c1">\(A_x = 13 \) &nbsp;&nbsp;&nbsp;&nbsp; \(A_y = 13 \)</label><br/>
+                    {{forms.form2.choice.1}}
+                    <label for="q2c2">\(A_x = 7.5 \) &nbsp;&nbsp;&nbsp; \(A_y = 13 \)</label><br/>
+                    {{forms.form2.choice.2}}
+                    <label for="q2c3">\(A_x = 13 \) &nbsp;&nbsp;&nbsp;&nbsp; \(A_y = 7.5 \)</label><br/>
+                    {{forms.form2.choice.3}}
+                    <label for="q2c4">None of the above</label><br/>
+                    {% csrf_token %}
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="ftr">
+        <div id="button-box">
+            <button id="btn2" form="question2" class="btn primary reduced-vis" type="submit">Submit</button>
+        </div>
+    </div>
+</div>
+
+<!-- Question 3 -->
+<div class="wrapper pretest" id="q3-container" style="display: none;">
+    <div class="hdr">
+        <h1>If \( |\vec{A}| = 10 \) and \( \theta = 60^{o} \), What is \( A_x \) and \( A_y \) ?</h1>
+    </div> 
+    <div class="ctr quiz">
+        <div><img src="{% static "IMG/Pre/pref3.svg"%}"/></div>
+        <div>               
+            <form method="POST" id="question3">
+                <p>Please select a choice below</p>
+                <div>
+                    {{forms.form3.choice.0}}
+                    <label for="q3c1">\(A_x = +8.7 \) &nbsp;&nbsp;&nbsp;&nbsp; \(A_y = +5.0 \)</label><br/>
+                    {{forms.form3.choice.1}}
+                    <label for="q3c2">\(A_x = -8.7 \) &nbsp;&nbsp;&nbsp;&nbsp; \(A_y =+5.0 \)</label><br/>
+                    {{forms.form3.choice.2}}
+                    <label for="q3c3">\(A_x = -8.7 \) &nbsp;&nbsp;&nbsp;&nbsp; \(A_y = -5.0 \)</label><br/>
+                    {{forms.form3.choice.3}}
+                    <label for="q3c4">None of the above</label><br/>
+                    {% csrf_token %}
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="ftr">
+        <div id="button-box">
+            <button id="btn3" form="question3" class="btn primary reduced-vis" type="submit">Submit</button>
+        </div>
+    </div>
+</div>
+
+<!-- Question 4 -->
+<div class="wrapper pretest" id="q4-container" style="display: none;">
+    <div class="hdr">
+        <h5>A \( 1 kg \) block is pushed down and forward (in the direction of the block's motion) at an angle \( \theta \) with 
+            the floor. Assuming that the floor has some roughness such that there is frictional force between the block and floor, 
+            which is the correct force diagram?</h5>
+    </div> 
+    <div class="ctr">         
+            <form method="POST" id="question4">
+                <div class="ctr-container">
+                    <div>{{forms.form4.choice.0}}</div>
+                    <div>{{forms.form4.choice.1}}</div>
+                    <div>{{forms.form4.choice.2}}</div>    
+                    <div>{{forms.form4.choice.3}}</div>
+                    <div><img src="{% static "IMG/Pre/pre4f1.svg"%}"></div>
+                    <div><img src="{% static "IMG/Pre/pre4f2.svg"%}"></div>
+                    <div><img src="{% static "IMG/Pre/pre4f3.svg"%}"></div>
+                    <div><img src="{% static "IMG/Pre/pre4f4.svg"%}"></div> 
+                </div>
+            </form>
+    </div>
+    <div class="ftr">
+        <div id="button-box">
+            <button id="btn4" form="question4" class="btn primary reduced-vis" type="submit">Submit</button>
+        </div>
+    </div>
+</div>
+
+
+<!-- Question 5 -->
+<div class="wrapper pretest" id="q5-container" style="display: none;">
+    <div class="hdr">
+        <h5> The forces acting on a box are shown in the free body diagram below. Given the freebody diagram, which of the following
+             choices correctly give the net force acting on the box. Take to the right to be +x and up to be +y</h5>
+    </div> 
+    <div class="ctr quiz">
+        <div><img src="{% static "IMG/Pre/pref5.svg"%}"/></div>
+        <div>               
+            <form method="POST" id="question5">
+                <p>Please select a choice below</p>
+                <div>
+                    {{forms.form5.choice.0}}
+                    <label for="q5c1">\(F_{net_x} = F-F_{f_k} \) &nbsp;&nbsp;&nbsp;&nbsp; \(F_{net_y} = F_{N} - F_{g} \)</label><br/>
+                    {{forms.form5.choice.1}}
+                    <label for="q5c1">\(F_{net_x} = F-F_{f_k} \) &nbsp;&nbsp;&nbsp;&nbsp; \(F_{net_y} = F_{N} - F_{g} \)</label><br/>
+                    {{forms.form5.choice.2}}
+                    <label for="q5c3">\(F_{net_x} = F + F_{f_k} \) &nbsp;&nbsp;&nbsp;&nbsp; \(F_{net_y} = F_g + F_{N}\)</label><br/>
+                    {{forms.form5.choice.3}}
+                    <label for="q5c4">None of the above</label><br/>
+                    {% csrf_token %}
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="ftr">
+        <div id="button-box">
+            <button id="btn5" form="question5" class="btn primary reduced-vis" type="submit">Submit</button>
+        </div>
+    </div>
+</div>
+
+<!-- Question 6 -->
+<div class="wrapper pretest" id="q6-container" style="display: none;">
+    <div class="hdr">
+        <h5>If the components of the net force are \(F_{net_x} = F-F_{f_k} \) and \(F_{net_y} = F_{N} - F_{g} \) ,
+             which is the correct force diagram?</h5>
+    </div> 
+    <div class="ctr">         
+            <form method="POST" id="question6">
+                <div class="ctr-container">
+                    <div>{{forms.form6.choice.0}}</div>
+                    <div>{{forms.form6.choice.1}}</div>
+                    <div>{{forms.form6.choice.2}}</div>    
+                    <div>{{forms.form6.choice.3}}</div>
+                    <div><img src="{% static "IMG/Pre/pref6f1.svg"%}"></div>
+                    <div><img src="{% static "IMG/Pre/pref6f2.svg"%}"></div>
+                    <div><img src="{% static "IMG/Pre/pref6f3.svg"%}"></div>
+                    <div><img src="{% static "IMG/Pre/pref6f4.svg"%}"></div> 
+                </div>
+            </form>
+    </div>
+    <div class="ftr">
+        <div id="button-box">
+            <button id="btn6" form="question6" class="btn primary reduced-vis" type="submit">Submit</button>
+        </div>
+    </div>
+</div>
+
+<!-- Question 7 -->
+<div class="wrapper pretest" id="q7-container" style="display: none;">
+    <div class="hdr">
+        <h4>The forces acting on an elevator at an instant in its motion are shown below. If \(m_{rider} = 60 kg \) and
+        \( |\vec{F}_{N}| = 750N\) what is the direction and magnitude of the accleration of the rider?</h4>
+    </div> 
+    <div class="ctr quiz">
+        <div><img src="{% static "IMG/Pre/pref7.svg"%}"/></div>
+        <div>               
+            <form method="POST" id="question7">
+                <p>Please select a choice below</p>
+                <div>
+                    {{forms.form7.choice.0}}
+                    <label for="q7c1"> Upward &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; \(|\vec{a}| = 2.7 m/s^2\)</label><br/>
+                    {{forms.form7.choice.1}}
+                    <label for="q7c2"> Downward &nbsp;&nbsp; \(|\vec{a}| = 2.7 m/s^2 \)</label><br/>
+                    {{forms.form7.choice.2}}
+                    <label for="q7c3"> Upward &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  \(|\vec{a}| = 5.4 m/s^2\)</label><br/>
+                    {{forms.form7.choice.3}}
+                    <label for="q7c4">None of the above</label><br/>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="ftr">
+        <div id="button-box">
+            <button id="btn7" form="question7" class="btn primary reduced-vis" type="submit">Submit</button>
+        </div>
+    </div>
+</div>
+
+<!-- Question 8 -->
+<div class="wrapper pretest" id="q8-container" style="display: none;">
+    <div class="hdr">
+        <h3> A \(70kg \) crate is pushed on a rough floor \( \mu_{k} = 0.3 \) by a \(300 N\) force. What is the acceleration of the crate?</h3>
+    </div> 
+    <div class="ctr quiz">
+        <div>               
+            <form method="POST" id="question8">
+                <p>Please select a choice below</p>
+                <div>
+                    {{forms.form8.choice.0}}
+                    <label for="q8c1">\(|\vec{a}| = 1.3 m/s^2 \)</label><br/>
+                    {{forms.form8.choice.1}}
+                    <label for="q8c1">\(|\vec{a}|=2.7 m/s^2\)</label><br/>
+                    {{forms.form8.choice.2}}
+                    <label for="q8c3">\(|\vec{a}| = 3.6 m/s^2\)</label><br/>
+                    {{forms.form8.choice.3}}
+                    <label for="q8c4">None of the above</label><br/>
+                    {% csrf_token %}
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="ftr">
+        <div id="button-box">
+            <button id="btn8" form="question8" class="btn primary reduced-vis" type="submit">Submit</button>
+        </div>
+    </div>
+</div>
+
+
+<!-- Question 9 -->
+<div class="wrapper pretest" id="q9-container">
+    <div class="hdr">
+        <h3> A \(15 kg\) crate is pushed to the right by a force \(|\vec{F}| = 200N\) that makes an angle \( \theta = 20^{o} \) below the floor. 
+          If there is a coefficient of friction \( \mu_k = 0.15\), what is the acceleration of the crate?</h3>
+    </div> 
+    <div class="ctr quiz">
+        <div>               
+            <form method="POST" id="question9">
+                <p>Please select a choice below</p>
+                <div>
+                    {{forms.form9.choice.0}}
+                    <label for="q9c1">\(a = 3.0 m/s^2 \)</label><br/>
+                    {{forms.form9.choice.1}}
+                    <label for="q9c1">\( a = 2.5 m/s^2 \)</label><br/>
+                    {{forms.form9.choice.2}}
+                    <label for="q9c3">\( a = 2.0 m/s^2 \)</label><br/>
+                    {{forms.form9.choice.3}}
+                    <label for="q9c4">None of the above</label><br/>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="ftr">
+        <div id="button-box">
+            <button id="btn9" form="question9" class="btn primary reduced-vis" type="submit">Submit</button>
+        </div>
+    </div>
+</div>
+
+<!-- Question 10 -->
+<div class="wrapper pretest" id="q10-container" style="display: none;">
+    <div class="hdr">
+        <h3> A \(1400kg\) car that is initially travelling at \(40m/s\) on wet pavement skids to a stop in 125m. What is the coefficient of kinetic friction (\(\mu_{k}\))</h3>
+    </div> 
+    <div class="ctr quiz">
+        <div>               
+            <form method="POST" id="question10">
+                <p>Please select a choice below</p>
+                <div>
+                    {{forms.form10.choice.0}}
+                    <label for="q10c1">\(\mu_{k} = 1.24 \)</label><br/>
+                    {{forms.form10.choice.1}}
+                    <label for="q10c1">\( \mu_{k} = 0.83 \)</label><br/>
+                    {{forms.form10.choice.2}}
+                    <label for="q10c3">\( \mu_{k} = 0.65 \)</label><br/>
+                    {{forms.form10.choice.3}}
+                    <label for="q10c4">None of the above</label><br/>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="ftr">
+        <div id="button-box">
+            <button id="btn10" form="question10" id="btn-form10" class="btn primary reduced-vis" type="submit">Submit</button>
+        </div>
+    </div>
+</div>
+
+<!-- Calibration -->
+<div id="calibration" class="info wrapper" style="display:none">
+    <div class="hdr"></div>
+    <div class="ctr" style="text-align: center;">
+        <h4>
+            Please tell the research assistant that it is time to calibrate the system. Thanks for your patience!
+        </h4>
+    </div>
+    <div class="ftr">
+        <button id="cal" class="btn primary reduced-vis">Next</button>
+    </div>
+</div>
+
+<script src="{% static "JS/pretest.js"%}"></script>
+
+
+
+{% endblock %}

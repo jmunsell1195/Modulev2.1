@@ -1,0 +1,194 @@
+{% extends "base.html" %}
+
+
+{% block head %}
+{% load static %}
+
+
+<link rel="stylesheet" href="{% static "style.css"%}"> 
+<link rel="stylesheet" href="{% static "utility.css"%}">
+<title>Force Module | Warmup</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+{% endblock %}
+
+
+{% block body %}
+<!-- Navbar -->
+<div class="navbar-container">
+    <div class="navbar-logo">
+      <span>
+        <img id="logo" height="48" width="48" alt="" src="{% static "navbarico.svg" %}"></img>
+        Force</span>Module
+    </div>
+    <div class="tabs">
+        <nav>
+          <ul>
+              <li><a class="inactive" href="#">Login</a></li>
+              <li><a class="active" href="#">Warm-Up</a></li>
+              <li><a class="inactive" href="#">Instruction</a></li>
+              <li><a class="inactive" href="#">Final</a></li>        
+          </ul>
+        </nav>
+    </div>
+    <!-- <div class="reporting">
+      <div class="statement">
+        <h4>I am feeling</h4>
+      </div>
+      <div id="mental-state-buttons"></div>
+      <button id="distracted-button" class="btn alternate1">Distracted</button>
+      <button id="focused-button" class="btn primary">Focused</button>
+    </div> -->
+</div>
+
+<div id="main0" class="info wrapper">
+  <div class="hdr"></div>
+  <div class="ctr">
+      <h4 style="text-align: center">
+        jkasdjlkasdjklaaskdljaklsdjklasjdkalsjdasdasd
+        The module will start shortly. Thank you for your patience.
+      </h4>
+  </div>
+  <div class="ftr">
+    <button id="btn0" class="btn primary reduced-vis" style="opacity: 0">Next</button>
+    <audio id="audio">
+      <source src="https://dl.dropbox.com/s/699p29vnfi64ry3/moduleBGmusic.mp3?dl=1"/>
+    </audio>
+  </div>
+</div>
+
+<div id="main1" class="info wrapper">
+    <div class="hdr">
+        <h4>
+        In this module you will learn how to solve force problems using Newton's Second Law.
+        </h4>
+    </div>
+    <div class="ctr">
+        <table class="mytable">
+            <tr id="LI1">
+              <td>
+                <img src="{% static "IMG/Pre/bullet.svg"%}"/>
+              </td>
+              <td>
+                First you will solve a few problems just to get warmed up.
+              </td>
+            </tr>
+            <tr id="LI2">
+              <td>
+                <img src="{% static "IMG/Pre/bullet.svg"%}"/>
+              </td>
+              <td>
+                Next you will watch a few short videos. There will be questions at the end of each section.
+              </td>
+            </tr>
+            <tr id="LI3">
+              <td>
+                <img src="{% static "IMG/Pre/bullet.svg"%}"/>
+              </td>
+              <td>
+                It is okay to go back and re-watch parts of the video to help you answer the questions.
+              </td>
+            </tr>
+            <tr id="LI5">
+              <td>
+                <img src="{% static "IMG/Pre/bullet.svg"%}" />
+              </td>
+              <td>
+                Finally you will take a short quiz at the end based on the material from the module
+              </td>
+            </tr>
+          </table>
+   </div>
+    <div id="button-box" class="ftr">
+        <button id="btn1" class="btn primary reduced-vis" >Next</button>
+    </div>
+</div>
+
+<div id="main2" class="info wrapper">
+  <div class="hdr">
+      <h4>
+      Our Learning Goals Will Be
+      </h4>
+  </div>
+  <div class="ctr">
+      <table class="mytable">
+          <tr id="LI6">
+            <td>
+              <img src="{% static "IMG/Pre/bullet.svg"%}"/>
+            </td>
+            <td>
+              To resolve a vector into its components
+            </td>
+          </tr>
+          <tr id="LI7">
+            <td>
+              <img src="{% static "IMG/Pre/bullet.svg"%}"/>
+            </td>
+            <td>
+              To write an equation for the net force
+            </td>
+          </tr>
+          <tr id="LI8">
+            <td>
+              <img src="{% static "IMG/Pre/bullet.svg"%}"/>
+            </td>
+            <td>
+              To write Newton's second law
+            </td>
+          </tr>
+          <tr id="LI9">
+            <td>
+              <img src="{% static "IMG/Pre/bullet.svg"%}"/>
+            </td>
+            <td>
+              To solve Newton's second law
+            </td>
+          </tr>
+        </table>
+ </div>
+  <div id="ftr2" class="ftr">
+      <button id="btn2" class="btn secondary reduced-vis" onclick="hide2();show1()">Prev.</button>
+      <button id="btn3" class="btn primary reduced-vis" onclick="hide2();show3();">Next</button>
+  </div>
+</div>
+
+<div id="main3" class="info wrapper" style="display: none;">
+  <div class="hdr">
+      <h4>
+      Mind Wandering Definition and Prompts
+      </h4>
+  </div>
+  <div class="ctr">
+    <h5 style="text-align: center;">
+       At some point, you may realize that you are no longer thinking about the current task (i.e., learning physics), but you may be thinking about something else altogether. This is called zoning out. 
+    </h5>
+      <table class="mytable">
+        <tr id="LI6">
+          <td>
+            <img src="{% static "IMG/Pre/bullet.svg"%}"/>
+          </td>
+          <td>
+            Prompts will frequently pop up that ask if you are feeling zoned out.
+          </td>
+        </tr>
+        <tr id="LI7">
+          <td>
+            <img src="{% static "IMG/Pre/bullet.svg"%}"/>
+          </td>
+          <td>
+            Please be as honest as possible about reporting zoning out. It is perfectly natural to zone out while reading.
+          </td>
+        </tr>
+      </table>
+  </div>
+  <div id="ftr3" class="ftr">
+      <button id="btn4" class="btn secondary reduced-vis" onclick="hide3();show2()">Prev.</button>
+      <button id="btn5" class="btn primary reduced-vis" onclick="nextPage();">Next</button>
+  </div>
+</div>
+
+<script src="{% static "JS/details.js"%}"></script>
+
+
+
+{% endblock %}

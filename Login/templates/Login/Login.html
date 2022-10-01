@@ -1,0 +1,123 @@
+{% extends "base.html" %}
+
+
+{% block head %}
+{% load static %}
+
+<link rel="stylesheet" href="{% static "utility.css"%}">
+<link rel="stylesheet" href="{% static "style.css"%}"> 
+<script src="{% static "Login/JS/login.js"%}"></script>
+<title>Welcome!</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+{% endblock %}
+
+{% load static %}
+{% block body %}
+            <!-- Navbar -->
+            <div id="navbar" class="navbar-container">
+              <div class="navbar-logo">
+                  <img id="logo" height="48" width="48" alt="" src="{% static "navbarico.svg" %}"></img>
+                  Module
+               </div>
+              <div class="tabs">
+                  <nav>
+                    <ul>
+                        <li><a id="Login" class="active" href="#">Login</a></li>
+                        <li><a id="Warm-Up" class="inactive" href="#">Warm-Up</a></li>
+                        <li><a id="Instruction" class="inactive" href="#">Instruction</a></li>
+                        <li><a id="Final" class="inactive" href="#">Final</a></li>        
+                    </ul>
+                  </nav>
+              </div>
+              <!-- <div class="reporting">
+                <div class="statement">
+                  <h4>I am feeling</h4>
+                </div>
+                <div id="mental-state-buttons">
+                  <button id="distracted-button" class="btn alternate1">Distracted</button>
+                  <button id="focused-button" class="btn primary">Focused</button>
+                </div>
+              </div> -->
+            </div>
+<!-- Login Container -->
+<div id="login-container">
+  <div class="form-wrap login">
+    <h3><strong>Welcome!</strong></h3>
+    <form id="form" method="post">
+      {% csrf_token %}
+      <span><input id="id_username" name="username" type="text" placeholder="School Email Address">@purdue.edu</span><br/>
+      <input id="id_password" name="password" type="password" placeholder="Purdue ID (Omitting Leading 0s and Dashes)">
+    </form> 
+    <div class="button-box">
+      <button  class="btn custbut" onclick="help();">Help</button>
+      <button  form="form" type="submit" class="btn custbut">Submit</button>
+    </div>
+  </div>
+  <div class="login-img">
+    <img id="log-img" src="{% static "Login/IMG/login.svg"%}" alt="">
+  </div>
+</div>
+
+
+{% if messages %}
+<style>
+  #login-container{
+    height: 20vw;
+  }
+
+
+  div#login-container{
+    margin: 1vw;
+    padding: 1vw;
+}
+</style>
+  <div class="error">
+    {% for message in messages %}
+    <div class="flex-item">
+      <p><h5>{{message}}</h5></p>
+    </div>
+  {% endfor %}
+  <button class="btn " onclick="help();">Help</button>
+</div>
+{% endif %} 
+
+
+
+<div id="help">
+  <div class="heading">
+    <h1> How to Enter Log In Information </h1>
+  </div>
+  <div class="box1">
+    <img id="PUID" src="{% static "Login/IMG/PUID.svg"%}"/>
+  </div>
+  <div class="box2">
+    <strong>Purdue Email</strong>
+  </div>
+  <div class="box3">
+    <strong>Purdue ID (PUID)</strong>
+  </div>
+  <div class="box4">
+    <strong>My Actual</strong>
+  </div>
+  <div class="box5">
+    jmunsell@purdue.edu
+  </div>
+  <div class="box6">
+      00123-00456 <br/> or 0012300456
+  </div>
+  <div class="box7">
+    <strong>I Should Enter</strong>
+  </div>
+  <div class="box8">
+    jmunsell
+  </div>
+  <div class="box9">
+    12300456
+  </div>
+  <div class="box10">
+    <button class="btn alternate1" onclick="back();">Return</button>
+  </div>
+</div>
+
+{% endblock %}
